@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Initial D Cars</title>
+    <link rel="icon" href="{{ url_for('static', filename='https://chatgpt.com/backend-api/estuary/content?id=file_000000005484720892d697b75d57c0a4&ts=492734&p=fs&cid=1&sig=305a219585880d25bc65292786781fbf442b23230cf4dde9a99983c73fd960f4&v=0') }}">
+</head>
+<body>
+
+<h1>Welcome to Initial D in real life cars</h1>
+<a href="/logout">Logout</a>
+
+<form method="GET">
+<input name="search" placeholder="Search">
+<button>Search</button>
+</form>
+
+<form method="POST">
+<input name="name" placeholder="Name">
+<input name="info" placeholder="Info">
+<input name="image" placeholder="Image URL">
+<select name="stage">
+
+</select>
+<button>Add</button>
+</form>
+
+{% for car in cars %}
+<div>
+<h3>{{ car.name }}</h3>
+<img src="{{ car.image }}" width="200">
+<p>{{ car.info }}</p>
+<a href="/edit/{{ car.id }}">Edit</a>
+<a href="/delete/{{ car.id }}">Delete</a>
+</div>
+{% endfor %}
+
+</body>
+</html>
